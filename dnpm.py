@@ -40,8 +40,6 @@ for c in ["time", "ax", "ay", "az"]:
     df[c] = pd.to_numeric(df[c], errors="coerce")
 df = df.dropna().reset_index(drop=True)
 
-st.caption("Pré-visualização (primeiras linhas):")
-st.dataframe(df.head(10), use_container_width=True)
 
 if len(df) < 10:
     st.error("Poucos dados após limpeza (menos de 10 linhas).")
@@ -337,3 +335,4 @@ st.download_button("⬇️ Baixar processado (CSV)",
                    proc.to_csv(index=False).encode("utf-8"),
                    file_name="acel_100Hz_lp6Hz.csv",
                    mime="text/csv")
+
